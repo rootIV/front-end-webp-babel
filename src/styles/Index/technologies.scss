@@ -5,62 +5,87 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
+    min-height: auto;
     width: 100%;
     height: 100vh;
     padding: 40px 20px;
-    transition: all 0.3s ease-in-out;
 
     h2 {
         position: absolute;
-        top: 100px;
+        top: 90px;
         left: 50%;
         transform: translateX(-50%);
-        transition: all 0.3s ease-in-out;
     }
-
-    // &.maximized h2 {
-    //     top: 50px;
-    //     font-size: 1.8rem;
-    // }
 
     .tech-carousel {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         position: relative;
-        gap: 15px;
+        gap: 30px;
         width: 100%;
-        padding: 20px;
-        transition: all 0.3s ease;
         z-index: 1;
+        top: 100px;
     }
 
     .tech-item {
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
         overflow: hidden;
-        width: 200px;
-        height: 250px;
+        width: 300px;
+        height: 350px;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out, position 0.3s ease-in-out;
-        cursor: pointer;
+        transition: transform 0.3s ease-in-out, position 0.3s ease-in-out, opacity 0.3s ease-in-out;
         z-index: 1;
+        opacity: 0.8;
     }
 
     .tech-item:hover {
         transform: scale(1.1);
+        opacity: 1;
     }
 
-    .tech-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .tech-item.maximized {
+        position: absolute;
+        width: 90vw;
+        height: 70vh;
+        top: 50%;
+        left: 50%;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+        z-index: 5;
+    }
+
+    .tech-item.minimized {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 620px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #b0b0b0;
+        opacity: 0.7;
+        border: 2px solid white;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        z-index: 5;
     }
 
     .tech-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         position: absolute;
         top: 0;
         left: 0;
@@ -68,12 +93,7 @@
         bottom: 0;
         background: rgba(0, 0, 0, 0.5);
         color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         padding: 20px;
-        text-align: center;
-        flex-direction: column;
     }
 
     .tech-info h3 {
@@ -87,92 +107,35 @@
         margin: 0 auto;
     }
 
-    .tech-item.maximized {
-        position: fixed;
-        width: 80vw;
-        height: 60vh;
-        top: 50%;
-        left: 50%;
-        border-radius: 8px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        transform: translate(-50%, -50%);
-        transition: all 0.3s ease-in-out;
-        z-index: 10;
-    }
-
-    .tech-item.minimized {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        opacity: 0.7;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        z-index: 5;
-    }
-
-    &.maximized .tech-item.minimized {
-        display: none;
-    }
-
-    &.maximized .tech-controls {
-        display: flex;
-        gap: 10px;
-    }
-
-    .tech-button {
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 1rem;
-        transition: background 0.3s;
-    }
-
-    .tech-button:hover {
-        background: rgba(0, 0, 0, 0.9);
-    }
-
-    .tech-controls {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 11;
-    }
-
     .minimized-items-container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
         margin-top: 20px;
-        transition: opacity 0.3s ease;
+        width: 100%;
+        min-height: 80px
     }
 
-    &.maximized .minimized-items-container {
-        margin-top: 65vh;
-    }
-
-    .tech-item.minimized img {
+    .tech-item img {
+        object-fit: cover;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+    }
+    
+    .tech-item.minimized img {
+        object-fit: contain;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
     }
 
-    .tech-item.minimized:not(.maximized) {
-        position: relative;
-        margin-top: 30px;
+    .tech-item.minimized .tech-info {
+        display: none;
     }
 
-    .tech-item.minimized + .tech-item.minimized {
-        margin-left: 15px;
-    }
-
-    .tech-item.maximized + .tech-carousel .tech-item.minimized {
-        z-index: 2;
-        margin-top: 50px;
+    .tech-item.minimized .tech-icon {
+        font-size: 24px;
+        color: white;
     }
 }

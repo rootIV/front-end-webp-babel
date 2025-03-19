@@ -7,31 +7,41 @@ interface FormInputData {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const techSection = document.querySelector(".technologies");
-    const techCarousel = document.querySelector(".tech-carousel");
-    const minimizedContainer = document.createElement("div");
-    minimizedContainer.classList.add("minimized-items-container");
-
-    techSection?.appendChild(minimizedContainer);
+    const techSection = document.querySelector('.technologies');
+    const tecSectionH2 = techSection?.querySelector("h2");
+    const tecSectionCarousel = techSection?.querySelector(".tech-carousel");
 
     document.querySelectorAll('.tech-item').forEach(item => {
         item.addEventListener('click', function () {
+            
             const wasMaximized = item.classList.contains('maximized');
 
-            document.querySelectorAll('.tech-item').forEach(innerItem => {
-                innerItem.classList.remove('maximized');
-                innerItem.classList.add('minimized');
-                minimizedContainer.appendChild(innerItem);
-            });
-
             if (wasMaximized) {
-                techSection?.classList.remove("maximized");
-                techCarousel?.append(...Array.from(document.querySelectorAll(".tech-item")));
+                document.querySelectorAll('.tech-item').forEach(innerItem => {
+                    innerItem.classList.add('minimized');
+                    innerItem.classList.remove('maximized');
+                });
+
+                item.classList.add('minimized');
             } 
             else {
-                techSection?.classList.add("maximized");
-                item.classList.add("maximized");
                 item.classList.remove("minimized");
+                item.classList.add("maximized");
+                
+                document.querySelectorAll('.tech-item').forEach(innerItem => {
+                    if (innerItem !== item) {
+                        innerItem.classList.remove('maximized');
+                        innerItem.classList.add('minimized');
+                    }
+                });
+            }
+
+            if (tecSectionH2 instanceof HTMLElement) {
+                tecSectionH2.style.top = "50px";
+            }
+
+            if (tecSectionCarousel instanceof HTMLElement) {
+                tecSectionCarousel.style.top = "0px";
             }
 
             item.classList.remove('minimized');

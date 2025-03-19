@@ -3,55 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>José Vitor - Engenheiro de Software</title>
+    <title>Eng. Software - José Vitor</title>
     <script defer src="./index.min.js"></script>
     <link rel="stylesheet" href="./index.scss">
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">
+            <div class="logo-container">
                 <a href="#hero" class="logo-text">
-                    José Vitor Dev
+                    <span class="jose">JOSÉ</span><span class="vitor">VITOR</span>
                 </a>
             </div>
-            <ul class="menu">
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#technologies">Sobre</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
+            <div class="menu-container">
+                <ul class="menu">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#technologies">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
     <section id="hero" class="hero">
         <h1>Desenvolvedor Backend</h1>
-        <p>Transforme suas idéias em negócios!</p>
+        <p>Transformando suas idéias em negócios!</p>
     </section>
 
     <section id="technologies" class="technologies">
-        <h2>Tecnologias</h2>
+        <div class="technologies-text">
+            <h2>Tecnologias</h2>
+        </div>
         <div class="tech-carousel">
             <div class="tech-item" data-info="C#/.NET">
                 <!-- <img src="path_to_image.jpg" alt="C#/.NET"> -->
                 <div class="tech-info">
-                    <h3>C#/.NET</h3>
-                    <p>Descrição ou vídeo aqui.</p>
+                    <h3>C# .NET</h3>
+                    <p>Faz o pix.</p>
                 </div>
             </div>
             <div class="tech-item" data-info="Python">
                 <!-- <img src="path_to_image.jpg" alt="Python"> -->
                 <div class="tech-info">
                     <h3>Python</h3>
-                    <p>Descrição ou vídeo aqui.</p>
+                    <p>Faz o cheque.</p>
                 </div>
             </div>
             <div class="tech-item" data-info="JavaScript">
                 <!-- <img src="path_to_image.jpg" alt="JavaScript"> -->
                 <div class="tech-info">
                     <h3>JavaScript</h3>
-                    <p>Descrição ou vídeo aqui.</p>
+                    <p>Faz o deposito.</p>
                 </div>
             </div>
+            <div class="minimized-items-container"></div>
         </div>
     </section>
 
@@ -65,7 +70,7 @@
             <input type="text" id="contact" required>
 
             <label for="description">Descrição do Projeto:</label>
-            <textarea id="description" rows="4" required></textarea>
+            <textarea id="description" rows="6" required></textarea>
 
             <button type="submit">Enviar</button>
         </form>
