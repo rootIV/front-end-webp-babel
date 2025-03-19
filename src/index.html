@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Vitor - Engenheiro de Software</title>
+    <script defer src="./index.min.js"></script>
+    <link rel="stylesheet" href="./index.scss">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#hero" class="logo-text">
+                    José Vitor Dev
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#technologies">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <h1>Desenvolvedor Backend</h1>
+        <p>Transforme suas idéias em negócios!</p>
+    </section>
+
+    <section id="technologies" class="technologies">
+        <h2>Tecnologias</h2>
+        <div class="tech-carousel">
+            <div class="tech-item" data-info="C#/.NET">
+                <!-- <img src="path_to_image.jpg" alt="C#/.NET"> -->
+                <div class="tech-info">
+                    <h3>C#/.NET</h3>
+                    <p>Descrição ou vídeo aqui.</p>
+                </div>
+            </div>
+            <div class="tech-item" data-info="Python">
+                <!-- <img src="path_to_image.jpg" alt="Python"> -->
+                <div class="tech-info">
+                    <h3>Python</h3>
+                    <p>Descrição ou vídeo aqui.</p>
+                </div>
+            </div>
+            <div class="tech-item" data-info="JavaScript">
+                <!-- <img src="path_to_image.jpg" alt="JavaScript"> -->
+                <div class="tech-info">
+                    <h3>JavaScript</h3>
+                    <p>Descrição ou vídeo aqui.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Entre em Contato</h2>
+        <form id="contact-form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" required>
+
+            <label for="contact">Email ou Telefone:</label>
+            <input type="text" id="contact" required>
+
+            <label for="description">Descrição do Projeto:</label>
+            <textarea id="description" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Desenvolvedor Backend. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,178 @@
+.technologies {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 40px 20px;
+    transition: all 0.3s ease-in-out;
+
+    h2 {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 0.3s ease-in-out;
+    }
+
+    // &.maximized h2 {
+    //     top: 50px;
+    //     font-size: 1.8rem;
+    // }
+
+    .tech-carousel {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        gap: 15px;
+        width: 100%;
+        padding: 20px;
+        transition: all 0.3s ease;
+        z-index: 1;
+    }
+
+    .tech-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        width: 200px;
+        height: 250px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out, position 0.3s ease-in-out;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .tech-item:hover {
+        transform: scale(1.1);
+    }
+
+    .tech-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .tech-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .tech-info h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .tech-info p {
+        font-size: 16px;
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+    .tech-item.maximized {
+        position: fixed;
+        width: 80vw;
+        height: 60vh;
+        top: 50%;
+        left: 50%;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease-in-out;
+        z-index: 10;
+    }
+
+    .tech-item.minimized {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        opacity: 0.7;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        z-index: 5;
+    }
+
+    &.maximized .tech-item.minimized {
+        display: none;
+    }
+
+    &.maximized .tech-controls {
+        display: flex;
+        gap: 10px;
+    }
+
+    .tech-button {
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background 0.3s;
+    }
+
+    .tech-button:hover {
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    .tech-controls {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 11;
+    }
+
+    .minimized-items-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        transition: opacity 0.3s ease;
+    }
+
+    &.maximized .minimized-items-container {
+        margin-top: 65vh;
+    }
+
+    .tech-item.minimized img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .tech-item.minimized:not(.maximized) {
+        position: relative;
+        margin-top: 30px;
+    }
+
+    .tech-item.minimized + .tech-item.minimized {
+        margin-left: 15px;
+    }
+
+    .tech-item.maximized + .tech-carousel .tech-item.minimized {
+        z-index: 2;
+        margin-top: 50px;
+    }
+}

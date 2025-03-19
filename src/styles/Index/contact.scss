@@ -1,0 +1,45 @@
+.contact{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact h2 {
+    text-align: center;
+}
+
+form {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #333; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #61dafb;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4da8da;
+}
